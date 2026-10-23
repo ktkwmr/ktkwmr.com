@@ -91,6 +91,29 @@ const PREVIEW = {
               </svg>
               <div class="pv-tunings"><span class="chip on">DADGAD</span><span class="chip">Open G</span><span class="chip">Drop D</span></div>
             </div>`,
+  // A photo of a score is read, then played with a cursor moving along the staff
+  sheetmusicplayer: `
+            <div class="pv-player" aria-hidden="true">
+              <svg class="pv-sheet" viewBox="0 0 252 104">
+                <g transform="rotate(-7 38 52)">
+                  <rect x="6" y="14" width="64" height="78" rx="2" fill="#fff" stroke="#000" stroke-width="1.2"/>
+                  <g stroke="#a3a3a3" stroke-width=".8"><path d="M14 28h48M14 32h48M14 36h48M14 40h48M14 44h48"/><path d="M14 60h48M14 64h48M14 68h48M14 72h48M14 76h48"/></g>
+                  <g fill="#000"><circle cx="22" cy="44" r="2"/><circle cx="30" cy="44" r="2"/><circle cx="38" cy="36" r="2"/><circle cx="46" cy="36" r="2"/><circle cx="54" cy="34" r="2"/><circle cx="22" cy="68" r="2"/><circle cx="32" cy="70" r="2"/><circle cx="42" cy="66" r="2"/><circle cx="52" cy="72" r="2"/></g>
+                </g>
+                <g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"><path d="M2 14V4h10M76 4h10v10M2 90v10h10M76 100h10V90"/></g>
+                <path d="M96 52h16M107 46l6 6-6 6" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <g stroke="#000" stroke-width="1"><path d="M124 32h124M124 40h124M124 48h124M124 56h124M124 64h124"/><path d="M124 32v32M248 32v32" stroke-width="1.4"/><path d="M134 72h12M150 72h12"/></g>
+                <g fill="#000">
+                  <ellipse cx="140" cy="72" rx="5" ry="3.6" transform="rotate(-20 140 72)"/><ellipse cx="156" cy="72" rx="5" ry="3.6" transform="rotate(-20 156 72)"/>
+                  <ellipse cx="172" cy="60" rx="5" ry="3.6" transform="rotate(-20 172 60)"/><ellipse cx="188" cy="60" rx="5" ry="3.6" transform="rotate(-20 188 60)"/>
+                  <ellipse cx="204" cy="56" rx="5" ry="3.6" transform="rotate(-20 204 56)"/><ellipse cx="220" cy="56" rx="5" ry="3.6" transform="rotate(-20 220 56)"/>
+                  <ellipse cx="237" cy="60" rx="5" ry="3.6" transform="rotate(-20 237 60)" fill="#fff" stroke="#000" stroke-width="1.6"/>
+                </g>
+                <g stroke="#000" stroke-width="1.2"><path d="M144.6 71V45M160.6 71V45M176.6 59V33M192.6 59V33M208.6 55V29M224.6 55V29M241.6 59V33"/></g>
+                <rect class="pv-cursor" x="131" y="22" width="3" height="58" rx="1.5"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">&#9654; Play</span><span class="chip">&#9833; = 100</span></div>
+            </div>`,
 };
 
 const APPS = [
@@ -349,6 +372,11 @@ const CSS = `
     .pv-finder svg text { fill: currentColor; }
     .pv-tunings { display: grid; gap: 6px; }
     .pv-icon { width: 72px; height: 72px; }
+    .pv-player { display: grid; justify-items: center; gap: 12px; }
+    .pv-sheet { width: 252px; max-width: 100%; height: auto; overflow: visible; }
+    .pv-cursor { fill: var(--ink); opacity: .55; animation: play 4s linear infinite; }
+    @keyframes play { 0% { transform: translateX(0); } 90%, 100% { transform: translateX(104px); } }
+    .pv-controls { display: flex; gap: 6px; }
 
     /* Shared promises */
     .why { margin: 0 0 72px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--paper-shadow); }
@@ -387,6 +415,7 @@ const CSS = `
     }
     @media (prefers-reduced-motion: reduce) {
       .pv-beats span { animation: none; }
+      .pv-cursor { animation: none; transform: translateX(32px); }
       .pv-beats span:first-child { background: var(--ink); color: var(--paper); }
       .beats i { animation: none; }
       .beats i:first-child { background: var(--ink); }
