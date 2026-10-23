@@ -1,0 +1,42 @@
+name: Build generated pages
+
+# Regenerates the top page (public/index.html, public/ja/index.html) and public/sitemap.xml
+# from scripts/, then commits the changes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "public/index.html"
+      - "public/ja/index.html"
+      - "public/sitemap.xml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate the top page and sitemap.xml
+        run: node scripts/build.mjs
+      - name: Commit changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/index.html public/ja public/sitemap.xml
+          git commit -m "トップページと sitemap.xml を再生成"
+          git push

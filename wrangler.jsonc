@@ -1,0 +1,21 @@
+{
+  "name": "ktkwmr-home",
+  "compatibility_date": "2026-10-01",
+  "observability": { "enabled": true },
+  // The domain root: everything on ktkwmr.com that no app's route (ktkwmr.com/<slug>*) takes,
+  // i.e. the top page, /ja/, robots.txt, sitemap.xml, the root icons, and the 404 page.
+  // Cloudflare uses the most specific route, so the apps keep their own paths.
+  "routes": [{ "pattern": "ktkwmr.com/*", "zone_name": "ktkwmr.com" }],
+  "workers_dev": false,
+  // PR branches still get preview URLs (workers_dev: false would turn them off)
+  "preview_urls": true,
+  // Required by `wrangler preview`, which Workers Builds runs for non-production branches
+  "previews": {},
+  // Regenerates the top page and sitemap.xml before deploy / dev
+  "build": { "command": "node scripts/build.mjs" },
+  "assets": {
+    "directory": "./public",
+    // Unknown URLs get public/404.html with status 404
+    "not_found_handling": "404-page"
+  }
+}
