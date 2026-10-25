@@ -6,8 +6,10 @@
 // names, descriptions, and guide lists are copied here by hand.
 //
 // To add an app: add its icon to ICON (the same paths as its icons/icon.svg) and an entry to APPS
-// (cards are shown in that order). PREVIEW (a small picture of its main screen) and guides are
-// optional: without a preview the card shows the app icon; without guides the list is left out.
+// (cards are shown in that order), and a PREVIEW: a small picture that shows what the app does
+// (its main screen, simplified). The preview is required; the build stops without one, because the
+// app icon alone does not tell visitors what the app is for. Guides are optional: without them the
+// list is left out.
 
 import { ORIGIN, escapeHtml } from "./util.mjs";
 
@@ -69,7 +71,25 @@ const DEVICES = (label) => `
         <figcaption>${label}</figcaption>
       </figure>`;
 
-// Optional per app; without one, the card shows the app icon large
+// Vocal Ladder: the same five-note exercise played three times, each a half step higher,
+// with the key being played lit in turn, and the keys below
+const ladderPreview = () => {
+  const steps = [0, 2, 4, 5, 7, 5, 4, 2, 0], keys = ["C4", "C#4", "D4"];
+  const groups = keys.map((k, g) => {
+    const x0 = 4 + g * 83, base = 82 - g * 12;
+    const notes = steps.map((st, i) => `<rect x="${x0 + i * 8.2}" y="${base - st * 5.5}" width="${i === steps.length - 1 ? 13 : 7}" height="9" rx="2.5"/>`).join("");
+    return `<g class="pv-key${g}">${notes}</g>`;
+  }).join("\n                ");
+  return `
+            <div class="pv-ladder" aria-hidden="true">
+              <svg class="pv-steps" viewBox="0 0 252 96">
+                ${groups}
+              </svg>
+              <div class="pv-controls">${keys.map((k, g) => `<span class="chip pv-k${g}">${k}</span>`).join("")}<span class="chip">→ G4</span></div>
+            </div>`;
+};
+
+// A picture of each app's main screen; every app in APPS needs one (see card())
 const PREVIEW = {
   chordtransposer: `
             <div class="pv-transpose" aria-hidden="true">
@@ -131,6 +151,7 @@ const PREVIEW = {
               </svg>
               <div class="pv-controls"><span class="chip on">70%</span><span class="chip">Key +2</span><span class="chip">+2% / loop</span></div>
             </div>`,
+  vocalladder: ladderPreview(),
 };
 
 const APPS = [
@@ -220,13 +241,13 @@ const APPS = [
     en: {
       tag: "Warm-up",
       lead: "A piano accompanist for vocal warm-ups: it plays an exercise such as Do-Re-Mi-Fa-Sol-Fa-Mi-Re-Do and moves it up a half step at a time, from the key you start on to the key you end on.",
-      points: ["Built-in and your own patterns", "Practice sets that play straight through", "Share sets with students as a file"],
+      points: ["Built-in and your own patterns", "Practice sets that play straight through", "Share sets as a file"],
       guides: [["guide", "How to use"], ["patterns", "Writing your own patterns"], ["warmup-scales", "Warm-up scales and your range"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "発声練習",
       lead: "発声練習のピアノ伴奏を自動で。ドレミファソファミレドなどの練習を、開始のキーから終了のキーまで半音ずつ上げながら弾きます。",
-      points: ["基本のパターンとオリジナル", "練習セットを続けて再生", "セットをファイルで生徒と共有"],
+      points: ["基本のパターンとオリジナル", "練習セットを続けて再生", "セットをファイルで共有"],
       guides: [["guide", "使い方ガイド"], ["patterns", "練習パターンの書き方"], ["warmup-scales", "発声練習の音階と音域の決め方"], ["faq", "よくある質問"]],
     },
   },
@@ -420,7 +441,6 @@ const CSS = `
     .pv-diagram { width: 128px; height: auto; }
     .pv-finder svg text { fill: currentColor; }
     .pv-tunings { display: grid; gap: 6px; }
-    .pv-icon { width: 72px; height: 72px; }
     .pv-player { display: grid; justify-items: center; gap: 12px; }
     .pv-sheet { width: 252px; max-width: 100%; height: auto; overflow: visible; }
     .pv-cursor { fill: var(--ink); opacity: .55; animation: play 4s linear infinite; }
@@ -430,6 +450,16 @@ const CSS = `
     .pv-wave { width: 252px; max-width: 100%; height: auto; }
     .pv-loopcursor { fill: var(--ink); opacity: .55; animation: loop 3s linear infinite; }
     @keyframes loop { 0% { transform: translateX(0); } 100% { transform: translateX(66px); } }
+    .pv-ladder { display: grid; justify-items: center; gap: 12px; }
+    .pv-steps { width: 252px; max-width: 100%; height: auto; }
+    .pv-steps g { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; animation: ladder 3.6s steps(1) infinite; }
+    .pv-ladder .chip { animation: ladderchip 3.6s steps(1) infinite; }
+    .pv-ladder .chip:last-child { animation: none; }
+    /* Each key lights for a third of the cycle, its chip with it */
+    .pv-steps .pv-key1, .pv-ladder .chip.pv-k1 { animation-delay: -2.4s; }
+    .pv-steps .pv-key2, .pv-ladder .chip.pv-k2 { animation-delay: -1.2s; }
+    @keyframes ladder { 0% { fill: var(--ink); } 33.3%, 100% { fill: var(--paper); } }
+    @keyframes ladderchip { 0% { background: var(--ink); border-color: var(--ink); color: var(--paper); } 33.3%, 100% { background: var(--paper); border-color: var(--line-strong); color: var(--ink); } }
 
     /* Shared promises */
     .why { margin: 0 0 72px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--paper-shadow); }
@@ -470,6 +500,9 @@ const CSS = `
       .pv-beats span { animation: none; }
       .pv-cursor { animation: none; transform: translateX(32px); }
       .pv-loopcursor { animation: none; transform: translateX(30px); }
+      .pv-steps g, .pv-ladder .chip { animation: none; }
+      .pv-steps .pv-key0 { fill: var(--ink); }
+      .pv-ladder .pv-k0 { background: var(--ink); border-color: var(--ink); color: var(--paper); }
       .pv-beats span:first-child { background: var(--ink); color: var(--paper); }
       .beats i { animation: none; }
       .beats i:first-child { background: var(--ink); }
@@ -478,6 +511,8 @@ const CSS = `
     }`;
 
 function card(lang, app) {
+  // Every card shows what its app does; the app icon alone does not (it is already in the card's header)
+  if (!PREVIEW[app.slug]) throw new Error(`scripts/pages/home.mjs: no PREVIEW for "${app.slug}". Add a small picture of the app's main screen.`);
   const t = app[lang];
   const ui = UI[lang];
   const href = appPath(lang, app.slug);
@@ -486,7 +521,7 @@ function card(lang, app) {
     .join("\n");
   return `        <li class="card">
           <div class="panel-head">${icon(app.slug)}<span>${app.name}</span><span class="tag">${escapeHtml(t.tag)}</span></div>
-          <a class="preview" href="${href}" tabindex="-1" aria-hidden="true">${PREVIEW[app.slug] || icon(app.slug, "pv-icon")}
+          <a class="preview" href="${href}" tabindex="-1" aria-hidden="true">${PREVIEW[app.slug]}
           </a>
           <div class="card-body">
             <h3><a href="${href}">${app.name}</a></h3>

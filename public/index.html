@@ -262,7 +262,6 @@
     .pv-diagram { width: 128px; height: auto; }
     .pv-finder svg text { fill: currentColor; }
     .pv-tunings { display: grid; gap: 6px; }
-    .pv-icon { width: 72px; height: 72px; }
     .pv-player { display: grid; justify-items: center; gap: 12px; }
     .pv-sheet { width: 252px; max-width: 100%; height: auto; overflow: visible; }
     .pv-cursor { fill: var(--ink); opacity: .55; animation: play 4s linear infinite; }
@@ -272,6 +271,16 @@
     .pv-wave { width: 252px; max-width: 100%; height: auto; }
     .pv-loopcursor { fill: var(--ink); opacity: .55; animation: loop 3s linear infinite; }
     @keyframes loop { 0% { transform: translateX(0); } 100% { transform: translateX(66px); } }
+    .pv-ladder { display: grid; justify-items: center; gap: 12px; }
+    .pv-steps { width: 252px; max-width: 100%; height: auto; }
+    .pv-steps g { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; animation: ladder 3.6s steps(1) infinite; }
+    .pv-ladder .chip { animation: ladderchip 3.6s steps(1) infinite; }
+    .pv-ladder .chip:last-child { animation: none; }
+    /* Each key lights for a third of the cycle, its chip with it */
+    .pv-steps .pv-key1, .pv-ladder .chip.pv-k1 { animation-delay: -2.4s; }
+    .pv-steps .pv-key2, .pv-ladder .chip.pv-k2 { animation-delay: -1.2s; }
+    @keyframes ladder { 0% { fill: var(--ink); } 33.3%, 100% { fill: var(--paper); } }
+    @keyframes ladderchip { 0% { background: var(--ink); border-color: var(--ink); color: var(--paper); } 33.3%, 100% { background: var(--paper); border-color: var(--line-strong); color: var(--ink); } }
 
     /* Shared promises */
     .why { margin: 0 0 72px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--paper-shadow); }
@@ -312,6 +321,9 @@
       .pv-beats span { animation: none; }
       .pv-cursor { animation: none; transform: translateX(32px); }
       .pv-loopcursor { animation: none; transform: translateX(30px); }
+      .pv-steps g, .pv-ladder .chip { animation: none; }
+      .pv-steps .pv-key0 { fill: var(--ink); }
+      .pv-ladder .pv-k0 { background: var(--ink); border-color: var(--ink); color: var(--paper); }
       .pv-beats span:first-child { background: var(--ink); color: var(--paper); }
       .beats i { animation: none; }
       .beats i:first-child { background: var(--ink); }
@@ -545,7 +557,15 @@
         </li>
         <li class="card">
           <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><path d="M3.5 23.5H9V18H14.5V12.5H20V7H24.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.1" cy="20.6" r="1.8" fill="#fff"/><circle cx="11.6" cy="15.1" r="1.8" fill="#fff"/><circle cx="17.1" cy="9.6" r="1.8" fill="#fff"/><circle cx="22.4" cy="4.1" r="1.8" fill="#fff"/></svg><span>Vocal Ladder</span><span class="tag">Warm-up</span></div>
-          <a class="preview" href="/vocalladder/" tabindex="-1" aria-hidden="true"><svg class="pv-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><path d="M3.5 23.5H9V18H14.5V12.5H20V7H24.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.1" cy="20.6" r="1.8" fill="#fff"/><circle cx="11.6" cy="15.1" r="1.8" fill="#fff"/><circle cx="17.1" cy="9.6" r="1.8" fill="#fff"/><circle cx="22.4" cy="4.1" r="1.8" fill="#fff"/></svg>
+          <a class="preview" href="/vocalladder/" tabindex="-1" aria-hidden="true">
+            <div class="pv-ladder" aria-hidden="true">
+              <svg class="pv-steps" viewBox="0 0 252 96">
+                <g class="pv-key0"><rect x="4" y="82" width="7" height="9" rx="2.5"/><rect x="12.2" y="71" width="7" height="9" rx="2.5"/><rect x="20.4" y="60" width="7" height="9" rx="2.5"/><rect x="28.599999999999998" y="54.5" width="7" height="9" rx="2.5"/><rect x="36.8" y="43.5" width="7" height="9" rx="2.5"/><rect x="45" y="54.5" width="7" height="9" rx="2.5"/><rect x="53.199999999999996" y="60" width="7" height="9" rx="2.5"/><rect x="61.39999999999999" y="71" width="7" height="9" rx="2.5"/><rect x="69.6" y="82" width="13" height="9" rx="2.5"/></g>
+                <g class="pv-key1"><rect x="87" y="70" width="7" height="9" rx="2.5"/><rect x="95.2" y="59" width="7" height="9" rx="2.5"/><rect x="103.4" y="48" width="7" height="9" rx="2.5"/><rect x="111.6" y="42.5" width="7" height="9" rx="2.5"/><rect x="119.8" y="31.5" width="7" height="9" rx="2.5"/><rect x="128" y="42.5" width="7" height="9" rx="2.5"/><rect x="136.2" y="48" width="7" height="9" rx="2.5"/><rect x="144.39999999999998" y="59" width="7" height="9" rx="2.5"/><rect x="152.6" y="70" width="13" height="9" rx="2.5"/></g>
+                <g class="pv-key2"><rect x="170" y="58" width="7" height="9" rx="2.5"/><rect x="178.2" y="47" width="7" height="9" rx="2.5"/><rect x="186.4" y="36" width="7" height="9" rx="2.5"/><rect x="194.6" y="30.5" width="7" height="9" rx="2.5"/><rect x="202.8" y="19.5" width="7" height="9" rx="2.5"/><rect x="211" y="30.5" width="7" height="9" rx="2.5"/><rect x="219.2" y="36" width="7" height="9" rx="2.5"/><rect x="227.39999999999998" y="47" width="7" height="9" rx="2.5"/><rect x="235.6" y="58" width="13" height="9" rx="2.5"/></g>
+              </svg>
+              <div class="pv-controls"><span class="chip pv-k0">C4</span><span class="chip pv-k1">C#4</span><span class="chip pv-k2">D4</span><span class="chip">→ G4</span></div>
+            </div>
           </a>
           <div class="card-body">
             <h3><a href="/vocalladder/">Vocal Ladder</a></h3>
@@ -553,7 +573,7 @@
             <ul class="points">
               <li>Built-in and your own patterns</li>
               <li>Practice sets that play straight through</li>
-              <li>Share sets with students as a file</li>
+              <li>Share sets as a file</li>
             </ul>
             <a class="btn" href="/vocalladder/" aria-label="Open app: Vocal Ladder">Open app<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <details class="guides">
