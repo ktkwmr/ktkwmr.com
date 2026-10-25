@@ -650,7 +650,7 @@ ${ui.why.map(([h, p], i) => `        <li><span class="num">${String(i + 1).padSt
       <span>${ui.footer}</span>
       <nav aria-label="${ui.nav}">
         <a href="https://github.com/ktkwmr" rel="noopener">${ui.source}</a>
-        <a href="https://github.com/ktkwmr/ChordTransposer/issues" rel="noopener">${ui.feedback}</a>
+        <a href="https://github.com/ktkwmr/ktkwmr.com/issues" rel="noopener">${ui.feedback}</a>
       </nav>
     </div>
   </footer>
