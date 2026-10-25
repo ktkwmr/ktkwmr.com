@@ -286,7 +286,7 @@ const UI = {
     description: "ミュージシャンが作った、ミュージシャンのための無料 Web アプリ。コード譜・テンポ・ギターのコードなど、演奏に役立つ道具をブラウザだけで。登録不要で、オフラインでも使えます。",
     other: { lang: "en", label: "English", href: "/?lang=en" },
     heading: "ミュージシャンの<br />ミュージシャンによる<br />ミュージシャンのための<br />Web アプリ",
-    lead: "弾く人が本当に欲しかった道具を、ひとつずつ作っています。ブラウザですぐ開けて、オフラインでも動き、登録は必要ありません。",
+    lead: "歌う人・弾く人が本当に欲しかった道具を作っています。ブラウザですぐ開けて、オフラインでも動き、登録は必要ありません。",
     cta: "アプリを見る",
     devices: "PC・タブレット・スマホに対応",
     appsTitle: "アプリ",
@@ -650,7 +650,7 @@ ${ui.why.map(([h, p], i) => `        <li><span class="num">${String(i + 1).padSt
       <span>${ui.footer}</span>
       <nav aria-label="${ui.nav}">
         <a href="https://github.com/ktkwmr" rel="noopener">${ui.source}</a>
-        <a href="https://github.com/ktkwmr/ChordTransposer/issues" rel="noopener">${ui.feedback}</a>
+        <a href="https://github.com/ktkwmr/ktkwmr.com/issues" rel="noopener">${ui.feedback}</a>
       </nav>
     </div>
   </footer>
