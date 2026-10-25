@@ -241,13 +241,13 @@ const APPS = [
     en: {
       tag: "Warm-up",
       lead: "A piano accompanist for vocal warm-ups: it plays an exercise such as Do-Re-Mi-Fa-Sol-Fa-Mi-Re-Do and moves it up a half step at a time, from the key you start on to the key you end on.",
-      points: ["Built-in and your own patterns", "Practice sets that play straight through", "Share sets with students as a file"],
+      points: ["Built-in and your own patterns", "Practice sets that play straight through", "Share sets as a file"],
       guides: [["guide", "How to use"], ["patterns", "Writing your own patterns"], ["warmup-scales", "Warm-up scales and your range"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "発声練習",
       lead: "発声練習のピアノ伴奏を自動で。ドレミファソファミレドなどの練習を、開始のキーから終了のキーまで半音ずつ上げながら弾きます。",
-      points: ["基本のパターンとオリジナル", "練習セットを続けて再生", "セットをファイルで生徒と共有"],
+      points: ["基本のパターンとオリジナル", "練習セットを続けて再生", "セットをファイルで共有"],
       guides: [["guide", "使い方ガイド"], ["patterns", "練習パターンの書き方"], ["warmup-scales", "発声練習の音階と音域の決め方"], ["faq", "よくある質問"]],
     },
   },
