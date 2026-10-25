@@ -187,13 +187,13 @@ const APPS = [
       tag: "Play",
       lead: "Photograph a score or open an image or PDF: the notes are read in your browser and played back, with a cursor moving along the staff.",
       points: ["Tempo read from the score, adjustable", "Fix wrong notes in a piano roll", "PC (Chrome / Edge)"],
-      guides: [],
+      guides: [["guide", "How to use"], ["photo-tips", "Photo tips for sheet music"], ["fix-errors", "Fixing reading mistakes"], ["tempo-markings", "Tempo markings and BPM"], ["musicxml", "What is MusicXML?"], ["what-is-omr", "How music recognition works"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "再生",
       lead: "楽譜を写真に撮るか、画像・PDF を開くと、ブラウザの中で音符を読み取って再生。五線の上をカーソルが進みます。",
       points: ["テンポは楽譜から読み取り、変更も可", "間違いはピアノロールで修正", "PC（Chrome・Edge）"],
-      guides: [],
+      guides: [["guide", "使い方ガイド"], ["photo-tips", "楽譜の撮り方のコツ"], ["fix-errors", "読み取りミスの直し方"], ["tempo-markings", "速度記号と BPM の一覧"], ["musicxml", "MusicXML とは"], ["what-is-omr", "楽譜を読み取る仕組み（OMR）"], ["faq", "よくある質問"]],
     },
   },
   {
