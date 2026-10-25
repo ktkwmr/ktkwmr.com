@@ -26,6 +26,8 @@ const ICON = {
     '<path d="M5 9.5h18M5 12.5h18M5 15.5h18M5 18.5h18" stroke="#fff" stroke-width="1" stroke-linecap="round"/><rect x="9.4" y="6.5" width="2.8" height="15" rx="1.4" fill="#fff" fill-opacity=".45"/><path d="M18.6 6.8v10.4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="16.7" cy="17.6" rx="2.3" ry="1.7" transform="rotate(-20 16.7 17.6)" fill="#fff"/>',
   looptrainer:
     '<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14A6.5 6.5 0 1 1 14 7.5"/><path d="M11.6 4.9l2.8 2.6-2.8 2.6"/></g><path d="M12 10.8v6.4l5-3.2z" fill="#fff"/>',
+  vocalladder:
+    '<path d="M3.5 23.5H9V18H14.5V12.5H20V7H24.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.1" cy="20.6" r="1.8" fill="#fff"/><circle cx="11.6" cy="15.1" r="1.8" fill="#fff"/><circle cx="17.1" cy="9.6" r="1.8" fill="#fff"/><circle cx="22.4" cy="4.1" r="1.8" fill="#fff"/>',
 };
 const icon = (slug, cls = "app-icon") =>
   `<svg class="${cls}" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/>${ICON[slug]}</svg>`;
@@ -210,6 +212,22 @@ const APPS = [
       lead: "手持ちの音源のキーとテンポを自由に変えて、好きな区間をループ再生。スロー再生でも音程は変わらないので、耳コピ・フレーズ練習に。",
       points: ["速度 50〜150%・キー ±6", "検出した拍にループが吸着", "1 周ごとに少しずつ速く"],
       guides: [],
+    },
+  },
+  {
+    slug: "vocalladder",
+    name: "Vocal Ladder",
+    en: {
+      tag: "Warm-up",
+      lead: "A piano accompanist for vocal warm-ups: it plays an exercise such as Do-Re-Mi-Fa-Sol-Fa-Mi-Re-Do and moves it up a half step at a time, from the key you start on to the key you end on.",
+      points: ["Built-in and your own patterns", "Practice sets that play straight through", "Share sets with students as a file"],
+      guides: [["guide", "How to use"], ["patterns", "Writing your own patterns"], ["warmup-scales", "Warm-up scales and your range"], ["faq", "FAQ"]],
+    },
+    ja: {
+      tag: "発声練習",
+      lead: "発声練習のピアノ伴奏を自動で。ドレミファソファミレドなどの練習を、開始のキーから終了のキーまで半音ずつ上げながら弾きます。",
+      points: ["基本のパターンとオリジナル", "練習セットを続けて再生", "セットをファイルで生徒と共有"],
+      guides: [["guide", "使い方ガイド"], ["patterns", "練習パターンの書き方"], ["warmup-scales", "発声練習の音階と音域の決め方"], ["faq", "よくある質問"]],
     },
   },
 ];
