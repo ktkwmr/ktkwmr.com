@@ -24,6 +24,8 @@ const ICON = {
     '<g fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M9 7v14M14 7v14M19 7v14M7 11.5h14"/></g><circle cx="14" cy="16" r="2.4" fill="#fff"/>',
   sheetmusicplayer:
     '<path d="M5 9.5h18M5 12.5h18M5 15.5h18M5 18.5h18" stroke="#fff" stroke-width="1" stroke-linecap="round"/><rect x="9.4" y="6.5" width="2.8" height="15" rx="1.4" fill="#fff" fill-opacity=".45"/><path d="M18.6 6.8v10.4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="16.7" cy="17.6" rx="2.3" ry="1.7" transform="rotate(-20 16.7 17.6)" fill="#fff"/>',
+  looptrainer:
+    '<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14A6.5 6.5 0 1 1 14 7.5"/><path d="M11.6 4.9l2.8 2.6-2.8 2.6"/></g><path d="M12 10.8v6.4l5-3.2z" fill="#fff"/>',
 };
 const icon = (slug, cls = "app-icon") =>
   `<svg class="${cls}" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/>${ICON[slug]}</svg>`;
@@ -114,6 +116,19 @@ const PREVIEW = {
               </svg>
               <div class="pv-controls"><span class="chip on">&#9654; Play</span><span class="chip">&#9833; = 100</span></div>
             </div>`,
+  // A waveform with an A-B loop, played slower with the pitch unchanged
+  looptrainer: `
+            <div class="pv-loop" aria-hidden="true">
+              <svg class="pv-wave" viewBox="0 0 252 100">
+                <rect x="97" y="8" width="70" height="84" fill="#000" fill-opacity=".06"/>
+                <path d="M10 47v6 M16 43.5v13 M22 39.5v21 M28 36v28 M34 33.5v33 M40 33v34 M46 35v30 M52 39.5v21 M58 44.5v11 M64 44.5v11 M70 40.5v19 M76 39v22 M82 39v22 M88 40.5v19 M94 42.5v15 M172 44v12 M178 41v18 M184 38.5v23 M190 36.5v27 M196 36v28 M202 38v24 M208 42v16 M214 47v6 M220 41.5v17 M226 37v26 M232 35v30 M238 35v30 M244 37v26" stroke="#a3a3a3" stroke-width="3" stroke-linecap="round"/>
+                <path d="M100 44.5v11 M106 46v8 M112 47v6 M118 46.5v7 M124 47v6 M130 47v6 M136 46.5v7 M142 46v8 M148 46v8 M154 46v8 M160 46.5v7 M166 46v8" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+                <g fill="#000"><path d="M96 8h2v84h-2z"/><rect x="96" y="8" width="12" height="11"/><path d="M166 8h2v84h-2z"/><rect x="156" y="8" width="12" height="11"/></g>
+                <g fill="#fff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="700" text-anchor="middle"><text x="102" y="16.5">A</text><text x="162" y="16.5">B</text></g>
+                <rect class="pv-loopcursor" x="98" y="8" width="2" height="84" rx="1"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">70%</span><span class="chip">Key +2</span><span class="chip">+2% / loop</span></div>
+            </div>`,
 };
 
 const APPS = [
@@ -178,6 +193,22 @@ const APPS = [
       tag: "再生",
       lead: "楽譜を写真に撮るか、画像・PDF を開くと、ブラウザの中で音符を読み取って再生。五線の上をカーソルが進みます。",
       points: ["テンポは楽譜から読み取り、変更も可", "間違いはピアノロールで修正", "PC（Chrome・Edge）"],
+      guides: [],
+    },
+  },
+  {
+    slug: "looptrainer",
+    name: "Loop Trainer",
+    en: {
+      tag: "Practice",
+      lead: "Open a song you have and change its speed without changing the pitch, or its key without changing the tempo. Loop any section to learn it by ear.",
+      points: ["50–150% speed, key ±6", "Loops snap to the detected beat", "Speeds up a little on every loop"],
+      guides: [],
+    },
+    ja: {
+      tag: "練習",
+      lead: "手持ちの音源の速度を音程そのままで、キーをテンポそのままで変更。好きな区間をループして耳コピ・フレーズ練習に。",
+      points: ["速度 50〜150%・キー ±6", "検出した拍にループが吸着", "1 周ごとに少しずつ速く"],
       guides: [],
     },
   },
@@ -377,6 +408,10 @@ const CSS = `
     .pv-cursor { fill: var(--ink); opacity: .55; animation: play 4s linear infinite; }
     @keyframes play { 0% { transform: translateX(0); } 90%, 100% { transform: translateX(104px); } }
     .pv-controls { display: flex; gap: 6px; }
+    .pv-loop { display: grid; justify-items: center; gap: 12px; }
+    .pv-wave { width: 252px; max-width: 100%; height: auto; }
+    .pv-loopcursor { fill: var(--ink); opacity: .55; animation: loop 3s linear infinite; }
+    @keyframes loop { 0% { transform: translateX(0); } 100% { transform: translateX(66px); } }
 
     /* Shared promises */
     .why { margin: 0 0 72px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--paper-shadow); }
@@ -416,6 +451,7 @@ const CSS = `
     @media (prefers-reduced-motion: reduce) {
       .pv-beats span { animation: none; }
       .pv-cursor { animation: none; transform: translateX(32px); }
+      .pv-loopcursor { animation: none; transform: translateX(30px); }
       .pv-beats span:first-child { background: var(--ink); color: var(--paper); }
       .beats i { animation: none; }
       .beats i:first-child { background: var(--ink); }

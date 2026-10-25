@@ -12,6 +12,7 @@ Each app is a separate repository and Worker with its own route `ktkwmr.com/<slu
 | https://ktkwmr.com/setlistmetronome/ | ktkwmr/SetlistMetronome |
 | https://ktkwmr.com/guitarchordfinder/ | ktkwmr/GuitarChordFinder |
 | https://ktkwmr.com/sheetmusicplayer/ | ktkwmr/SheetMusicPlayer |
+| https://ktkwmr.com/looptrainer/ | ktkwmr/LoopTrainer |
 
 ## Structure / 構成
 
