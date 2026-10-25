@@ -201,13 +201,13 @@ const APPS = [
     name: "Loop Trainer",
     en: {
       tag: "Practice",
-      lead: "Open a song you have and change its speed without changing the pitch, or its key without changing the tempo. Loop any section to learn it by ear.",
+      lead: "Change the key and the tempo of a song you have freely, and loop any section. Slowing down keeps the pitch, so it is made for learning by ear.",
       points: ["50–150% speed, key ±6", "Loops snap to the detected beat", "Speeds up a little on every loop"],
       guides: [],
     },
     ja: {
       tag: "練習",
-      lead: "手持ちの音源の速度を音程そのままで、キーをテンポそのままで変更。好きな区間をループして耳コピ・フレーズ練習に。",
+      lead: "手持ちの音源のキーとテンポを自由に変えて、好きな区間をループ再生。スロー再生でも音程は変わらないので、耳コピ・フレーズ練習に。",
       points: ["速度 50〜150%・キー ±6", "検出した拍にループが吸着", "1 周ごとに少しずつ速く"],
       guides: [],
     },
