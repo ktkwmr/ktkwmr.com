@@ -15,7 +15,8 @@ https://ktkwmr.com/ のトップページ（アプリ一覧）と、ドメイン
 ## ルール
 - 手で編集するのは `scripts/`、`public/robots.txt`・`404.html`・`_headers`・`_redirects`・`icon.svg`。生成ファイル（`public/index.html`・`public/ja/index.html`・`public/sitemap.xml`）は `node scripts/build.mjs` で作り直す（`--check` で確認）。`og-image.png`・`icons/` は `node scripts/render-images.mjs`。
 - アプリ名はデータ（`home.mjs` の `APPS`・`ICON`）にだけ書く。ヘッダー・説明文・OGP 画像には書かない（アプリが増えても直さずに済むように）。
-- アプリを足したら `APPS`・`ICON` と `robots.txt` の `Sitemap:` 行を同じ PR で足す。アプリのガイド記事・名前・説明・アイコンが変わったときも直す。
+- アプリを足したら `APPS`・`ICON`・`PREVIEW` と `robots.txt` の `Sitemap:` 行を同じ PR で足す。アプリのガイド記事・名前・説明・アイコン・画面が変わったときも直す。
+- `PREVIEW`（カードの上の絵）は必須。アプリの機能が一目でわかる、主な画面を簡単にした絵にする（アイコンだけにしない。アイコンはカードの見出しにもう出ている）。無いと `build.mjs` が止まる。足したら PC 幅とスマホ幅のスクリーンショットで見た目を確かめる。
 - このリポジトリはどのアプリにも依存しない（アプリのファイルを参照しない。アプリへのリンクだけ）。
 - 作業はブランチ → PR → Cloudflare のプレビュービルド確認 → squash マージ。
 - 本番サイト・Cloudflare 管理画面にはこの環境から届かないことが多い。確かめられなかったことは「未確認」と書き、ユーザーに確認手順を伝える。
