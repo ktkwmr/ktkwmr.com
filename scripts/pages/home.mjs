@@ -226,13 +226,13 @@ const APPS = [
       tag: "Practice",
       lead: "Change the key and the tempo of a song you have freely, and loop any section. Slowing down keeps the pitch, so it is made for learning by ear.",
       points: ["50–150% speed, key ±6", "Loops snap to the detected beat", "Speeds up a little on every loop"],
-      guides: [],
+      guides: [["guide", "How to use"], ["learn-by-ear", "Learning by ear"], ["speed-up-practice", "Speeding up step by step"], ["change-key", "Changing the key"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "練習",
       lead: "手持ちの音源のキーとテンポを自由に変えて、好きな区間をループ再生。スロー再生でも音程は変わらないので、耳コピ・フレーズ練習に。",
       points: ["速度 50〜150%・キー ±6", "検出した拍にループが吸着", "1 周ごとに少しずつ速く"],
-      guides: [],
+      guides: [["guide", "使い方ガイド"], ["learn-by-ear", "耳コピのやり方"], ["speed-up-practice", "少しずつ速くする練習法"], ["change-key", "キー変更の使い方"], ["faq", "よくある質問"]],
     },
   },
   {
