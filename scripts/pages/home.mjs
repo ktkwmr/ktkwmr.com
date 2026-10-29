@@ -272,11 +272,13 @@ const APPS = [
       tag: "Stems",
       lead: "Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along.",
       points: ["Mute, solo, and a fader per part", "Save each part or your mix as MP3", "No upload; best on a PC"],
+      guides: [["guide", "How to use"], ["minus-one", "Practicing with your part removed"], ["learn-by-ear", "Hearing the bass and drums clearly"], ["how-it-works", "How AI separation works"], ["better-results", "Tips for better separation"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "パート分離",
       lead: "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。",
       points: ["パートごとにミュート・ソロ・音量", "各パートとミックスを MP3 で保存", "アップロードなし・PC 推奨"],
+      guides: [["guide", "使い方ガイド"], ["minus-one", "自分のパートを消して練習する"], ["learn-by-ear", "ベースとドラムを聞き取る"], ["how-it-works", "AI 音源分離の仕組み"], ["better-results", "うまく分離するコツ"], ["faq", "よくある質問"]],
     },
   },
 ];
