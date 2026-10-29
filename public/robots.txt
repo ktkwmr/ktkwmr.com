@@ -8,3 +8,4 @@ Sitemap: https://ktkwmr.com/setlistmetronome/sitemap.xml
 Sitemap: https://ktkwmr.com/sheetmusicplayer/sitemap.xml
 Sitemap: https://ktkwmr.com/looptrainer/sitemap.xml
 Sitemap: https://ktkwmr.com/vocalladder/sitemap.xml
+Sitemap: https://ktkwmr.com/bandstemmixer/sitemap.xml
