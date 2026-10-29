@@ -115,6 +115,19 @@
           "price": "0",
           "priceCurrency": "USD"
         }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Band Stem Mixer",
+        "url": "https://ktkwmr.com/bandstemmixer/ja/",
+        "description": "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       }
     ]
   }
@@ -264,6 +277,10 @@
     .pv-loopcursor { fill: var(--ink); opacity: .55; animation: loop 3s linear infinite; }
     @keyframes loop { 0% { transform: translateX(0); } 100% { transform: translateX(66px); } }
     .pv-ladder { display: grid; justify-items: center; gap: 12px; }
+    .pv-stems { display: grid; justify-items: center; gap: 12px; }
+    .pv-mixer { width: 252px; max-width: 100%; height: auto; }
+    .pv-mixer text { fill: currentColor; }
+    .pv-mixer text[fill] { fill: #a3a3a3; }
     .pv-steps { width: 252px; max-width: 100%; height: auto; }
     .pv-steps g { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; animation: ladder 3.6s steps(1) infinite; }
     .pv-ladder .chip { animation: ladderchip 3.6s steps(1) infinite; }
@@ -373,7 +390,7 @@
     </section>
 
     <section aria-labelledby="apps">
-      <div class="section-head"><h2 id="apps">アプリ</h2><span class="count">06</span></div>
+      <div class="section-head"><h2 id="apps">アプリ</h2><span class="count">07</span></div>
       <ul class="apps">
         <li class="card">
           <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M11 7v14M17 7v14M8 12.5l12-2.5M8 18.5l12-2.5"/></g></svg><span>Chord Transposer</span><span class="tag">移調</span></div>
@@ -587,6 +604,31 @@
                 <li><a href="/vocalladder/ja/faq/">よくある質問</a></li>
               </ul>
             </details>
+          </div>
+        </li>
+        <li class="card">
+          <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M4.5 11.5v5M7.5 8.5v11"/><path d="M10.5 14C14 14 14.5 6.5 18.5 6.5H20M10.5 14C14 14 14.5 11.5 18.5 11.5H20M10.5 14C14 14 14.5 16.5 18.5 16.5H20M10.5 14C14 14 14.5 21.5 18.5 21.5H20"/></g><g fill="#fff"><circle cx="22.5" cy="6.5" r="2"/><circle cx="22.5" cy="11.5" r="2"/><circle cx="22.5" cy="16.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/></g></svg><span>Band Stem Mixer</span><span class="tag">パート分離</span></div>
+          <a class="preview" href="/bandstemmixer/ja/" tabindex="-1" aria-hidden="true">
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <path d="M8 46v8 M14 40v20 M20 34v32 M26 38v24 M32 30v40 M38 36v28 M44 42v16 M50 33v34 M56 39v22 M62 45v10" stroke="#a3a3a3" stroke-width="3" stroke-linecap="round"/>
+                <path d="M72 50h14M81 44l6 6-6 6" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700"><text x="98" y="23" fill="#a3a3a3">Vocals</text><text x="98" y="45">Drums</text><text x="98" y="67">Bass</text><text x="98" y="89">Other</text></g>
+                <g stroke-width="3" stroke-linecap="round"><path d="M146 20h96" stroke="#d4d4d4"/><path d="M146 42h96M146 64h96M146 86h96" stroke="#d4d4d4"/><path d="M146 42h70M146 64h82M146 86h52" stroke="#000"/></g>
+                <g stroke-width="1.4"><circle cx="216" cy="20" r="5.5" fill="#fff" stroke="#a3a3a3"/><circle cx="216" cy="42" r="5.5" fill="#fff" stroke="#000"/><circle cx="228" cy="64" r="5.5" fill="#fff" stroke="#000"/><circle cx="198" cy="86" r="5.5" fill="#fff" stroke="#000"/></g>
+              </svg>
+              <div class="pv-controls"><span class="chip on">M Vocals</span><span class="chip">S</span><span class="chip">MP3</span></div>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3><a href="/bandstemmixer/ja/">Band Stem Mixer</a></h3>
+            <p class="desc">バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。</p>
+            <ul class="points">
+              <li>パートごとにミュート・ソロ・音量</li>
+              <li>各パートとミックスを MP3 で保存</li>
+              <li>アップロードなし・PC 推奨</li>
+            </ul>
+            <a class="btn" href="/bandstemmixer/ja/" aria-label="アプリを開く: Band Stem Mixer">アプリを開く<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </li>
       </ul>

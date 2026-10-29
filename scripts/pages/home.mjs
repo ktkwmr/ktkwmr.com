@@ -30,6 +30,8 @@ const ICON = {
     '<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14A6.5 6.5 0 1 1 14 7.5"/><path d="M11.6 4.9l2.8 2.6-2.8 2.6"/></g><path d="M12 10.8v6.4l5-3.2z" fill="#fff"/>',
   vocalladder:
     '<path d="M3.5 23.5H9V18H14.5V12.5H20V7H24.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.1" cy="20.6" r="1.8" fill="#fff"/><circle cx="11.6" cy="15.1" r="1.8" fill="#fff"/><circle cx="17.1" cy="9.6" r="1.8" fill="#fff"/><circle cx="22.4" cy="4.1" r="1.8" fill="#fff"/>',
+  bandstemmixer:
+    '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M4.5 11.5v5M7.5 8.5v11"/><path d="M10.5 14C14 14 14.5 6.5 18.5 6.5H20M10.5 14C14 14 14.5 11.5 18.5 11.5H20M10.5 14C14 14 14.5 16.5 18.5 16.5H20M10.5 14C14 14 14.5 21.5 18.5 21.5H20"/></g><g fill="#fff"><circle cx="22.5" cy="6.5" r="2"/><circle cx="22.5" cy="11.5" r="2"/><circle cx="22.5" cy="16.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/></g>',
 };
 const icon = (slug, cls = "app-icon") =>
   `<svg class="${cls}" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/>${ICON[slug]}</svg>`;
@@ -152,6 +154,18 @@ const PREVIEW = {
               <div class="pv-controls"><span class="chip on">70%</span><span class="chip">Key +2</span><span class="chip">+2% / loop</span></div>
             </div>`,
   vocalladder: ladderPreview(),
+  // A song split into four parts, each with its own fader (vocals muted, as when singing along)
+  bandstemmixer: `
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <path d="M8 46v8 M14 40v20 M20 34v32 M26 38v24 M32 30v40 M38 36v28 M44 42v16 M50 33v34 M56 39v22 M62 45v10" stroke="#a3a3a3" stroke-width="3" stroke-linecap="round"/>
+                <path d="M72 50h14M81 44l6 6-6 6" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700"><text x="98" y="23" fill="#a3a3a3">Vocals</text><text x="98" y="45">Drums</text><text x="98" y="67">Bass</text><text x="98" y="89">Other</text></g>
+                <g stroke-width="3" stroke-linecap="round"><path d="M146 20h96" stroke="#d4d4d4"/><path d="M146 42h96M146 64h96M146 86h96" stroke="#d4d4d4"/><path d="M146 42h70M146 64h82M146 86h52" stroke="#000"/></g>
+                <g stroke-width="1.4"><circle cx="216" cy="20" r="5.5" fill="#fff" stroke="#a3a3a3"/><circle cx="216" cy="42" r="5.5" fill="#fff" stroke="#000"/><circle cx="228" cy="64" r="5.5" fill="#fff" stroke="#000"/><circle cx="198" cy="86" r="5.5" fill="#fff" stroke="#000"/></g>
+              </svg>
+              <div class="pv-controls"><span class="chip on">M Vocals</span><span class="chip">S</span><span class="chip">MP3</span></div>
+            </div>`,
 };
 
 const APPS = [
@@ -249,6 +263,20 @@ const APPS = [
       lead: "発声練習のピアノ伴奏を自動で。ドレミファソファミレドなどの練習を、開始のキーから終了のキーまで半音ずつ上げながら弾きます。",
       points: ["基本のパターンとオリジナル", "練習セットを続けて再生", "セットをファイルで共有"],
       guides: [["guide", "使い方ガイド"], ["patterns", "練習パターンの書き方"], ["warmup-scales", "発声練習の音階と音域の決め方"], ["faq", "よくある質問"]],
+    },
+  },
+  {
+    slug: "bandstemmixer",
+    name: "Band Stem Mixer",
+    en: {
+      tag: "Stems",
+      lead: "Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along.",
+      points: ["Mute, solo, and a fader per part", "Save each part or your mix as MP3", "No upload; best on a PC"],
+    },
+    ja: {
+      tag: "パート分離",
+      lead: "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。",
+      points: ["パートごとにミュート・ソロ・音量", "各パートとミックスを MP3 で保存", "アップロードなし・PC 推奨"],
     },
   },
 ];
@@ -451,6 +479,10 @@ const CSS = `
     .pv-loopcursor { fill: var(--ink); opacity: .55; animation: loop 3s linear infinite; }
     @keyframes loop { 0% { transform: translateX(0); } 100% { transform: translateX(66px); } }
     .pv-ladder { display: grid; justify-items: center; gap: 12px; }
+    .pv-stems { display: grid; justify-items: center; gap: 12px; }
+    .pv-mixer { width: 252px; max-width: 100%; height: auto; }
+    .pv-mixer text { fill: currentColor; }
+    .pv-mixer text[fill] { fill: #a3a3a3; }
     .pv-steps { width: 252px; max-width: 100%; height: auto; }
     .pv-steps g { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; animation: ladder 3.6s steps(1) infinite; }
     .pv-ladder .chip { animation: ladderchip 3.6s steps(1) infinite; }
