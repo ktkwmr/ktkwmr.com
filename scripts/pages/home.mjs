@@ -30,6 +30,8 @@ const ICON = {
     '<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14A6.5 6.5 0 1 1 14 7.5"/><path d="M11.6 4.9l2.8 2.6-2.8 2.6"/></g><path d="M12 10.8v6.4l5-3.2z" fill="#fff"/>',
   vocalladder:
     '<path d="M3.5 23.5H9V18H14.5V12.5H20V7H24.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.1" cy="20.6" r="1.8" fill="#fff"/><circle cx="11.6" cy="15.1" r="1.8" fill="#fff"/><circle cx="17.1" cy="9.6" r="1.8" fill="#fff"/><circle cx="22.4" cy="4.1" r="1.8" fill="#fff"/>',
+  demotrackmaker:
+    '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M5 9h8M5 14h8M5 19h6"/><path d="M20.5 6v12.6"/><path d="M20.5 6c1.6.9 3 1.7 3.4 3.6"/></g><ellipse cx="18.1" cy="19" rx="2.7" ry="2.05" fill="#fff" transform="rotate(-20 18.1 19)"/>',
   bandstemmixer:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M4.5 11.5v5M7.5 8.5v11"/><path d="M10.5 14C14 14 14.5 6.5 18.5 6.5H20M10.5 14C14 14 14.5 11.5 18.5 11.5H20M10.5 14C14 14 14.5 16.5 18.5 16.5H20M10.5 14C14 14 14.5 21.5 18.5 21.5H20"/></g><g fill="#fff"><circle cx="22.5" cy="6.5" r="2"/><circle cx="22.5" cy="11.5" r="2"/><circle cx="22.5" cy="16.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/></g>',
 };
@@ -154,6 +156,21 @@ const PREVIEW = {
               <div class="pv-controls"><span class="chip on">70%</span><span class="chip">Key +2</span><span class="chip">+2% / loop</span></div>
             </div>`,
   vocalladder: ladderPreview(),
+  // A chord chart turned into bass, piano and drum parts, with a recorded vocal on top
+  demotrackmaker: `
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <g fill="none" stroke="#d4d4d4" stroke-width="1.2"><rect x="44" y="2" width="48" height="16" rx="4"/><rect x="96" y="2" width="48" height="16" rx="4"/><rect x="148" y="2" width="48" height="16" rx="4"/><rect x="200" y="2" width="48" height="16" rx="4"/></g>
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle"><text x="68" y="13.5">C</text><text x="120" y="13.5">Am</text><text x="172" y="13.5">F</text><text x="224" y="13.5">G</text></g>
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="8.5" font-weight="700"><text x="2" y="35">Bass</text><text x="2" y="55">Piano</text><text x="2" y="75">Drums</text><text x="2" y="95" fill="#a3a3a3">Vocal</text></g>
+                <g stroke="#000" stroke-width="3" stroke-linecap="round"><path d="M46 36h9M58 36h9M70 36h9M82 36h8M98 32h9M110 32h9M122 32h9M134 32h8M150 38h9M162 38h9M174 38h9M186 38h8M202 34h9M214 34h9M226 34h9M238 30h8"/></g>
+                <g stroke="#000" stroke-width="2" stroke-linecap="round"><path d="M46 48h44M46 52h44M46 56h44M98 50h44M98 54h44M98 58h44M150 47h44M150 51h44M150 55h44M202 49h44M202 53h44M202 57h44"/></g>
+                <g fill="#000"><circle cx="47" cy="78" r="2.2"/><circle cx="73" cy="72" r="2.2"/><circle cx="99" cy="78" r="2.2"/><circle cx="125" cy="72" r="2.2"/><circle cx="151" cy="78" r="2.2"/><circle cx="177" cy="72" r="2.2"/><circle cx="203" cy="78" r="2.2"/><circle cx="229" cy="72" r="2.2"/></g>
+                <g fill="#737373"><circle cx="60" cy="66" r="1.6"/><circle cx="86" cy="66" r="1.6"/><circle cx="112" cy="66" r="1.6"/><circle cx="138" cy="66" r="1.6"/><circle cx="164" cy="66" r="1.6"/><circle cx="190" cy="66" r="1.6"/><circle cx="216" cy="66" r="1.6"/><circle cx="242" cy="66" r="1.6"/></g>
+                <path d="M46 92l4-5 3 9 4-11 3 12 4-8 4 5 3-3 5 1h6M100 92l4-6 3 10 4-12 3 13 4-9 4 6 3-3 5 1h6M154 92l4-5 3 9 4-11 3 12 4-8 4 5 3-3 5 1h6M208 92l4-6 3 10 4-12 3 13 4-9 4 6 3-3 5 1" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linejoin="round"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">● REC</span><span class="chip">FX</span><span class="chip">WAV</span><span class="chip">MIDI</span></div>
+            </div>`,
   // A song split into four parts, each with its own fader (vocals muted, as when singing along)
   bandstemmixer: `
             <div class="pv-stems" aria-hidden="true">
@@ -279,6 +296,22 @@ const APPS = [
       lead: "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。コードと BPM の推定、ボーカルからのハモリ作成、キーの変更も。",
       points: ["ミュート・ソロ・音量、MP3 で保存", "コード推定・ハモリ作成・キー変更", "アップロードなし・PC 推奨"],
       guides: [["guide", "使い方ガイド"], ["minus-one", "自分のパートを消して練習する"], ["learn-by-ear", "ベースとドラムを聞き取る"], ["harmony", "ハモリの練習"], ["chords-and-key", "コード表示とキー変更"], ["how-it-works", "AI 音源分離の仕組み"], ["better-results", "うまく分離するコツ"], ["faq", "よくある質問"]],
+    },
+  },
+  {
+    slug: "demotrackmaker",
+    name: "Demo Track Maker",
+    en: {
+      tag: "Demo",
+      lead: "Type a chord progression and get bass, piano and drums that vary like a real band, then record your voice or guitar on top to make a demo of your song. Effects, and export to WAV, MP3, MIDI or a project file.",
+      points: ["Backing from chords, edit any note", "Record and line up takes", "WAV / MP3 / MIDI export"],
+      guides: [["guide", "How to use"], ["make-a-demo", "Making a song demo"], ["chord-symbols", "Chord symbols"], ["backing-patterns", "Backing patterns by genre"], ["recording-tips", "Recording tips"], ["faq", "FAQ"]],
+    },
+    ja: {
+      tag: "デモ音源",
+      lead: "コード進行を入れると、人が弾くように変化するベース・ピアノ・ドラムの伴奏を自動で作成。その上に歌やギターを重ねて録音し、デモ音源を作れます。エフェクト、WAV・MP3・MIDI・プロジェクトへの書き出しも。",
+      points: ["コードから伴奏、1 音ずつ編集", "録音とテイクの位置合わせ", "WAV・MP3・MIDI に書き出し"],
+      guides: [["guide", "使い方ガイド"], ["make-a-demo", "デモ音源の作り方"], ["chord-symbols", "コードネームの読み方"], ["backing-patterns", "ジャンル別・伴奏パターン"], ["recording-tips", "宅録のコツ"], ["faq", "よくある質問"]],
     },
   },
 ];
