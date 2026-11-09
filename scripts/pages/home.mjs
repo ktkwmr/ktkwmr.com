@@ -30,6 +30,8 @@ const ICON = {
     '<g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14A6.5 6.5 0 1 1 14 7.5"/><path d="M11.6 4.9l2.8 2.6-2.8 2.6"/></g><path d="M12 10.8v6.4l5-3.2z" fill="#fff"/>',
   vocalladder:
     '<path d="M3.5 23.5H9V18H14.5V12.5H20V7H24.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6.1" cy="20.6" r="1.8" fill="#fff"/><circle cx="11.6" cy="15.1" r="1.8" fill="#fff"/><circle cx="17.1" cy="9.6" r="1.8" fill="#fff"/><circle cx="22.4" cy="4.1" r="1.8" fill="#fff"/>',
+  notenamer:
+    '<path d="M5 6.5h18M5 9.5h18M5 12.5h18" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M16.3 3.6v8.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="14.4" cy="12.6" rx="2.3" ry="1.7" transform="rotate(-20 14.4 12.6)" fill="#fff"/><path d="M14 16.1l1.7 2h5.5a1.5 1.5 0 0 1 1.5 1.5v2.9a1.5 1.5 0 0 1-1.5 1.5H6.8a1.5 1.5 0 0 1-1.5-1.5v-2.9a1.5 1.5 0 0 1 1.5-1.5h5.5z" fill="#fff"/><path d="M8.4 21.1h2.6M12.7 21.1h2.6M17 21.1h2.6" stroke="#000" stroke-width="1.4" stroke-linecap="round"/>',
   demotrackmaker:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M5 9h8M5 14h8M5 19h6"/><path d="M20.5 6v12.6"/><path d="M20.5 6c1.6.9 3 1.7 3.4 3.6"/></g><ellipse cx="18.1" cy="19" rx="2.7" ry="2.05" fill="#fff" transform="rotate(-20 18.1 19)"/>',
   bandstemmixer:
@@ -142,6 +144,24 @@ const PREVIEW = {
               </svg>
               <div class="pv-controls"><span class="chip on">&#9654; Play</span><span class="chip">&#9833; = 100</span></div>
             </div>`,
+  // A photo of a score, then the staff with the name written under every note
+  notenamer: `
+            <div class="pv-player" aria-hidden="true">
+              <svg class="pv-sheet" viewBox="0 0 252 104">
+                <g transform="rotate(-7 38 52)">
+                  <rect x="6" y="14" width="64" height="78" rx="2" fill="#fff" stroke="#000" stroke-width="1.2"/>
+                  <g stroke="#a3a3a3" stroke-width=".8"><path d="M14 28h48M14 32h48M14 36h48M14 40h48M14 44h48"/><path d="M14 60h48M14 64h48M14 68h48M14 72h48M14 76h48"/></g>
+                  <g fill="#000"><circle cx="22" cy="44" r="2"/><circle cx="30" cy="44" r="2"/><circle cx="38" cy="40" r="2"/><circle cx="46" cy="36" r="2"/><circle cx="54" cy="36" r="2"/><circle cx="22" cy="68" r="2"/><circle cx="32" cy="70" r="2"/><circle cx="42" cy="66" r="2"/><circle cx="52" cy="72" r="2"/></g>
+                </g>
+                <g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"><path d="M2 14V4h10M76 4h10v10M2 90v10h10M76 100h10V90"/></g>
+                <path d="M96 52h16M107 46l6 6-6 6" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <g stroke="#000" stroke-width="1"><path d="M124 24h124M124 32h124M124 40h124M124 48h124M124 56h124"/><path d="M124 24v32M248 24v32" stroke-width="1.4"/></g>
+                <g fill="#000"><ellipse cx="140" cy="56" rx="5" ry="3.6" transform="rotate(-20 140 56)"/><ellipse cx="156" cy="56" rx="5" ry="3.6" transform="rotate(-20 156 56)"/><ellipse cx="172" cy="52" rx="5" ry="3.6" transform="rotate(-20 172 52)"/><ellipse cx="188" cy="48" rx="5" ry="3.6" transform="rotate(-20 188 48)"/><ellipse cx="204" cy="48" rx="5" ry="3.6" transform="rotate(-20 204 48)"/><ellipse cx="220" cy="52" rx="5" ry="3.6" transform="rotate(-20 220 52)"/><ellipse cx="236" cy="56" rx="5" ry="3.6" transform="rotate(-20 236 56)"/></g>
+                <g stroke="#000" stroke-width="1.2"><path d="M144.6 55V29M160.6 55V29M176.6 51V25M192.6 47V21M208.6 47V21M224.6 51V25M240.6 55V29"/></g>
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#000"><text x="140" y="82">E</text><text x="156" y="82">E</text><text x="172" y="82">F</text><text x="188" y="82">G</text><text x="204" y="82">G</text><text x="220" y="82">F</text><text x="236" y="82">E</text></g>
+              </svg>
+              <div class="pv-controls"><span class="chip on">C D E</span><span class="chip">ドレミ</span><span class="chip">Do Re Mi</span></div>
+            </div>`,
   // A waveform with an A-B loop, played slower with the pitch unchanged
   looptrainer: `
             <div class="pv-loop" aria-hidden="true">
@@ -248,6 +268,22 @@ const APPS = [
       lead: "楽譜を写真に撮るか、画像・PDF を開くと、ブラウザの中で音符を読み取って再生。五線の上をカーソルが進みます。",
       points: ["テンポは楽譜から読み取り、変更も可", "間違いはピアノロールで修正", "PC（Chrome・Edge）"],
       guides: [["guide", "使い方ガイド"], ["photo-tips", "楽譜の撮り方のコツ"], ["fix-errors", "読み取りミスの直し方"], ["tempo-markings", "速度記号と BPM の一覧"], ["musicxml", "MusicXML とは"], ["what-is-omr", "楽譜を読み取る仕組み（OMR）"], ["faq", "よくある質問"]],
+    },
+  },
+  {
+    slug: "notenamer",
+    name: "Note Namer",
+    en: {
+      tag: "Note names",
+      lead: "Take a photo of sheet music, and the name of every note is written under it: C D E, Do Re Mi, ドレミ, 도레미 and more, with the sharps and flats of the key signature. Print it, or save and share it as images.",
+      points: ["10 naming systems, movable Do too", "Print on A4, save or share as images", "Read in your browser, no upload"],
+      guides: [["guide", "How to use"], ["note-name-chart", "Note name chart"], ["reading-notes", "Reading notes on the staff"], ["sharps-and-flats", "Sharps, flats, and key signatures"], ["photo-tips", "Photo tips for sheet music"], ["fix-errors", "Fixing reading mistakes"], ["faq", "FAQ"]],
+    },
+    ja: {
+      tag: "音名",
+      lead: "楽譜を写真に撮ると、すべての音符の下にドレミ（音名）を書きます。調号の ♯・♭ も反映し、C D E・도레미・移動ドなどにも切り替えられます。A4 で印刷、画像で保存・共有も。",
+      points: ["書き方 10 種類（移動ドも）", "A4 で印刷・画像で保存・共有", "ブラウザ内で読み取り・アップロードなし"],
+      guides: [["guide", "使い方ガイド"], ["note-name-chart", "音名の対応表"], ["reading-notes", "五線譜の音の読み方"], ["sharps-and-flats", "♯・♭と調号の読み方"], ["photo-tips", "楽譜の撮り方のコツ"], ["fix-errors", "読み取りミスの直し方"], ["faq", "よくある質問"]],
     },
   },
   {
