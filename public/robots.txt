@@ -11,3 +11,4 @@ Sitemap: https://ktkwmr.com/looptrainer/sitemap.xml
 Sitemap: https://ktkwmr.com/vocalladder/sitemap.xml
 Sitemap: https://ktkwmr.com/bandstemmixer/sitemap.xml
 Sitemap: https://ktkwmr.com/demotrackmaker/sitemap.xml
+Sitemap: https://ktkwmr.com/karaoketrainer/sitemap.xml

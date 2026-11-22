@@ -34,6 +34,8 @@ const ICON = {
     '<path d="M5 6.5h18M5 9.5h18M5 12.5h18" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M16.3 3.6v8.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="14.4" cy="12.6" rx="2.3" ry="1.7" transform="rotate(-20 14.4 12.6)" fill="#fff"/><path d="M14 16.1l1.7 2h5.5a1.5 1.5 0 0 1 1.5 1.5v2.9a1.5 1.5 0 0 1-1.5 1.5H6.8a1.5 1.5 0 0 1-1.5-1.5v-2.9a1.5 1.5 0 0 1 1.5-1.5h5.5z" fill="#fff"/><path d="M8.4 21.1h2.6M12.7 21.1h2.6M17 21.1h2.6" stroke="#000" stroke-width="1.4" stroke-linecap="round"/>',
   demotrackmaker:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M5 9h8M5 14h8M5 19h6"/><path d="M20.5 6v12.6"/><path d="M20.5 6c1.6.9 3 1.7 3.4 3.6"/></g><ellipse cx="18.1" cy="19" rx="2.7" ry="2.05" fill="#fff" transform="rotate(-20 18.1 19)"/>',
+  karaoketrainer:
+    '<path d="M4.5 18.5h4l2-4h4l2-5h4l2 3h1" fill="none" stroke="#8a8a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 19.5h4.2l2-4.6h3.6l2.4-4.4h3.8l2.4 3.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
   bandstemmixer:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M4.5 11.5v5M7.5 8.5v11"/><path d="M10.5 14C14 14 14.5 6.5 18.5 6.5H20M10.5 14C14 14 14.5 11.5 18.5 11.5H20M10.5 14C14 14 14.5 16.5 18.5 16.5H20M10.5 14C14 14 14.5 21.5 18.5 21.5H20"/></g><g fill="#fff"><circle cx="22.5" cy="6.5" r="2"/><circle cx="22.5" cy="11.5" r="2"/><circle cx="22.5" cy="16.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/></g>',
 };
@@ -190,6 +192,20 @@ const PREVIEW = {
                 <path d="M46 92l4-5 3 9 4-11 3 12 4-8 4 5 3-3 5 1h6M100 92l4-6 3 10 4-12 3 13 4-9 4 6 3-3 5 1h6M154 92l4-5 3 9 4-11 3 12 4-8 4 5 3-3 5 1h6M208 92l4-6 3 10 4-12 3 13 4-9 4 6 3-3 5 1" fill="none" stroke="#a3a3a3" stroke-width="1.4" stroke-linejoin="round"/>
               </svg>
               <div class="pv-controls"><span class="chip on">● REC</span><span class="chip">FX</span><span class="chip">WAV</span><span class="chip">MIDI</span></div>
+            </div>`,
+  // The original melody (grey bars) with the singer's pitch drawn over it: green on pitch, red where it
+  // went flat; a keyboard on the left and the playing position as a black line
+  karaoketrainer: `
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <g fill="#fafafa"><rect x="16" y="14" width="236" height="12"/><rect x="16" y="38" width="236" height="12"/><rect x="16" y="74" width="236" height="12"/></g>
+                <g fill="#262626"><rect x="0" y="14" width="10" height="12"/><rect x="0" y="38" width="10" height="12"/><rect x="0" y="74" width="10" height="12"/></g>
+                <path d="M15.5 0v100" stroke="#d4d4d4" stroke-width="1"/>
+                <g stroke="#cfcfcf" stroke-width="7" stroke-linecap="round"><path d="M26 80h30M66 62h30M106 44h34M150 62h28M188 32h30M228 44h20"/></g>
+                <g fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 80.5h30M66 62.5h30" stroke="#15803d"/><path d="M107 54c6-1 9-5 12-7" stroke="#dc2626"/><path d="M119 47h20" stroke="#b45309"/><path d="M150 62.5h14" stroke="#15803d"/></g>
+                <path d="M164 0v100" stroke="#000" stroke-width="1.6"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">● Sing</span><span class="chip">Vocal 0%</span><span class="chip">Key −2</span></div>
             </div>`,
   // A song split into four parts, each with its own fader (vocals muted, as when singing along)
   bandstemmixer: `
@@ -348,6 +364,22 @@ const APPS = [
       lead: "コード進行を入れると、人が弾くように変化するベース・ピアノ・ドラムの伴奏を自動で作成。その上に歌やギターを重ねて録音し、デモ音源を作れます。エフェクト、WAV・MP3・MIDI・プロジェクトへの書き出しも。",
       points: ["コードから伴奏、1 音ずつ編集", "録音とテイクの位置合わせ", "WAV・MP3・MIDI に書き出し"],
       guides: [["guide", "使い方ガイド"], ["make-a-demo", "デモ音源の作り方"], ["chord-symbols", "コードネームの読み方"], ["backing-patterns", "ジャンル別・伴奏パターン"], ["recording-tips", "宅録のコツ"], ["faq", "よくある質問"]],
+    },
+  },
+  {
+    slug: "karaoketrainer",
+    name: "Karaoke Trainer",
+    en: {
+      tag: "Karaoke",
+      lead: "Load a song you have, turn the singer down with AI, and sing along: your pitch is drawn over the original melody, so you see where you went flat or sharp. Singing an octave lower counts as on pitch.",
+      points: ["Vocal 0–100%, key change", "Results with the parts that went off", "Key suggestion for your range (optional)"],
+      guides: [["guide", "How to use"], ["faq", "FAQ"]],
+    },
+    ja: {
+      tag: "カラオケ練習",
+      lead: "手持ちの曲を読み込むと、AI で歌手の声を小さくでき、歌うと原曲のメロディに自分の音程が重なって表示されます。どこで高すぎた・低すぎたかが目でわかります。オクターブ違いも正解。",
+      points: ["ボーカル 0〜100%・キー変更", "ズレたところがわかる答え合わせ", "音域からおすすめキー（任意）"],
+      guides: [["guide", "使い方ガイド"], ["faq", "よくある質問"]],
     },
   },
 ];
