@@ -35,7 +35,7 @@ const ICON = {
   demotrackmaker:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M5 9h8M5 14h8M5 19h6"/><path d="M20.5 6v12.6"/><path d="M20.5 6c1.6.9 3 1.7 3.4 3.6"/></g><ellipse cx="18.1" cy="19" rx="2.7" ry="2.05" fill="#fff" transform="rotate(-20 18.1 19)"/>',
   karaoketrainer:
-    '<path d="M4.5 18.5h4l2-4h4l2-5h4l2 3h1" fill="none" stroke="#8a8a8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 19.5h4.2l2-4.6h3.6l2.4-4.4h3.8l2.4 3.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
+    '<path d="M6.5 12.6v11" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M4.5 12h4" stroke="#000"/><circle cx="6.5" cy="8.3" r="4.3" fill="#fff"/><path d="M2.4 8.4h8.2" stroke="#000"/><rect x="11.5" y="19" width="7.2" height="3.2" rx="1.6" fill="#8a8a8a"/><rect x="19" y="11.5" width="6.5" height="3.2" rx="1.6" fill="#8a8a8a"/><path d="M13.1 20.6h1.4l.6-2.8 1 4.4.5-1.6h1.8l1.2-7.5h1.2l.6-2.8 1 4.4.5-1.6h.5" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
   bandstemmixer:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M4.5 11.5v5M7.5 8.5v11"/><path d="M10.5 14C14 14 14.5 6.5 18.5 6.5H20M10.5 14C14 14 14.5 11.5 18.5 11.5H20M10.5 14C14 14 14.5 16.5 18.5 16.5H20M10.5 14C14 14 14.5 21.5 18.5 21.5H20"/></g><g fill="#fff"><circle cx="22.5" cy="6.5" r="2"/><circle cx="22.5" cy="11.5" r="2"/><circle cx="22.5" cy="16.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/></g>',
 };
