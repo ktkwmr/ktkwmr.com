@@ -371,14 +371,14 @@ const APPS = [
     name: "Karaoke Trainer",
     en: {
       tag: "Karaoke",
-      lead: "Load a song you have, turn the singer down with AI, and sing along: your pitch is drawn over the original melody, so you see where you went flat or sharp. Singing an octave lower counts as on pitch.",
-      points: ["Vocal 0–100%, key change", "Results with the parts that went off", "Key suggestion for your range (optional)"],
+      lead: "Load a song you have and turn the vocals down with AI. When you sing, your pitch is drawn over the original melody, so you can see at a glance where you went sharp or flat. It can also measure your comfortable vocal range, and change the key.",
+      points: ["Vocal 0–100%", "Results with the parts that went off", "Key suggestion for your range (optional)"],
       guides: [["guide", "How to use"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "カラオケ練習",
-      lead: "手持ちの曲を読み込むと、AI で歌手の声を小さくでき、歌うと原曲のメロディに自分の音程が重なって表示されます。どこで高すぎた・低すぎたかが目でわかります。オクターブ違いも正解。",
-      points: ["ボーカル 0〜100%・キー変更", "ズレたところがわかる答え合わせ", "音域からおすすめキー（任意）"],
+      lead: "手持ちの曲を読み込むと、AI でボーカルを小さくでき、歌うと原曲のメロディに自分の音程が重なって表示されます。どこで高すぎた・低すぎたかが一目でわかります。歌いやすい音域を計測する機能もあり、キー変更にも対応。",
+      points: ["ボーカル 0〜100%", "ズレたところがわかる答え合わせ", "音域からおすすめキー（任意）"],
       guides: [["guide", "使い方ガイド"], ["faq", "よくある質問"]],
     },
   },
