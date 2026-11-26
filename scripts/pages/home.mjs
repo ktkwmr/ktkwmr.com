@@ -36,6 +36,8 @@ const ICON = {
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M5 9h8M5 14h8M5 19h6"/><path d="M20.5 6v12.6"/><path d="M20.5 6c1.6.9 3 1.7 3.4 3.6"/></g><ellipse cx="18.1" cy="19" rx="2.7" ry="2.05" fill="#fff" transform="rotate(-20 18.1 19)"/>',
   karaoketrainer:
     '<path d="M6.5 12.6v11" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><path d="M4.5 12h4" stroke="#000"/><circle cx="6.5" cy="8.3" r="4.3" fill="#fff"/><path d="M2.4 8.4h8.2" stroke="#000"/><rect x="11.5" y="19" width="7.2" height="3.2" rx="1.6" fill="#8a8a8a"/><rect x="19" y="11.5" width="6.5" height="3.2" rx="1.6" fill="#8a8a8a"/><path d="M13.1 20.6h1.4l.6-2.8 1 4.4.5-1.6h1.8l1.2-7.5h1.2l.6-2.8 1 4.4.5-1.6h.5" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
+  vocalharmonymaker:
+    '<g stroke="#fff" stroke-linecap="round" fill="none"><path stroke-width="2" d="M5 20.5h3M10.5 18.5h3M16 16h2.5M21 18h2"/><path stroke-width="3" d="M5 13h3M10.5 11h3M16 8.5h2.5M21 10.5h2"/></g>',
   bandstemmixer:
     '<g stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"><path d="M4.5 11.5v5M7.5 8.5v11"/><path d="M10.5 14C14 14 14.5 6.5 18.5 6.5H20M10.5 14C14 14 14.5 11.5 18.5 11.5H20M10.5 14C14 14 14.5 16.5 18.5 16.5H20M10.5 14C14 14 14.5 21.5 18.5 21.5H20"/></g><g fill="#fff"><circle cx="22.5" cy="6.5" r="2"/><circle cx="22.5" cy="11.5" r="2"/><circle cx="22.5" cy="16.5" r="2"/><circle cx="22.5" cy="21.5" r="2"/></g>',
 };
@@ -207,6 +209,19 @@ const PREVIEW = {
               </svg>
               <div class="pv-controls"><span class="chip on">● Sing</span><span class="chip">Vocal 0%</span><span class="chip">Key −2</span></div>
             </div>`,
+  // The piano roll of the app: chord names on top, the vocal melody (grey line) and the harmony notes a 3rd above
+  // (black bars), the play position as a black line
+  vocalharmonymaker: `
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700"><text x="4" y="11">Am</text><text x="66" y="11">F</text><text x="128" y="11">C</text><text x="190" y="11">G</text></g>
+                <path d="M0 17h252" stroke="#e5e5e5" stroke-width="1"/>
+                <g stroke="#000" stroke-width="6" stroke-linecap="butt"><path d="M4 34h40M48 28h12M66 42h44M128 32h36M168 48h16M190 38h56"/></g>
+                <g fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"><path d="M4 58c5-2 10 2 15 0s10 2 15 0 6 1 10 0M48 52h12M66 66c6-2 12 2 18 0s12 2 18 0 5 1 8 0M128 56c5-2 10 2 15 0s10 2 15 0 4 1 6 0M168 72h16M190 62c6-2 12 2 18 0s12 2 18 0 10 1 20 0"/></g>
+                <path d="M112 17v83" stroke="#000" stroke-width="1.6"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">3rd above</span><span class="chip">Guide</span><span class="chip">MP3</span></div>
+            </div>`,
   // A song split into four parts, each with its own fader (vocals muted, as when singing along)
   bandstemmixer: `
             <div class="pv-stems" aria-hidden="true">
@@ -339,15 +354,15 @@ const APPS = [
     name: "Band Stem Mixer",
     en: {
       tag: "Stems",
-      lead: "Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along. It also finds the chords and BPM, makes a harmony part from the vocals, and changes the key.",
-      points: ["Mute, solo, fader; save as MP3", "Chords, harmony part, key change", "No upload; best on a PC"],
-      guides: [["guide", "How to use"], ["minus-one", "Practicing with your part removed"], ["learn-by-ear", "Hearing the bass and drums clearly"], ["harmony", "Practicing harmonies"], ["chords-and-key", "Chords and key change"], ["how-it-works", "How AI separation works"], ["better-results", "Tips for better separation"], ["faq", "FAQ"]],
+      lead: "Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along. It can also change the key. Audio and video files.",
+      points: ["Mute, solo, fader; save as MP3", "Key change (all but drums)", "No upload; best on a PC"],
+      guides: [["guide", "How to use"], ["minus-one", "Practicing with your part removed"], ["learn-by-ear", "Hearing the bass and drums clearly"], ["key-change", "Changing the key"], ["how-it-works", "How AI separation works"], ["better-results", "Tips for better separation"], ["faq", "FAQ"]],
     },
     ja: {
       tag: "パート分離",
-      lead: "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。コードと BPM の推定、ボーカルからのハモリ作成、キーの変更も。",
-      points: ["ミュート・ソロ・音量、MP3 で保存", "コード推定・ハモリ作成・キー変更", "アップロードなし・PC 推奨"],
-      guides: [["guide", "使い方ガイド"], ["minus-one", "自分のパートを消して練習する"], ["learn-by-ear", "ベースとドラムを聞き取る"], ["harmony", "ハモリの練習"], ["chords-and-key", "コード表示とキー変更"], ["how-it-works", "AI 音源分離の仕組み"], ["better-results", "うまく分離するコツ"], ["faq", "よくある質問"]],
+      lead: "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。キーの変更も。音声ファイルと動画に対応。",
+      points: ["ミュート・ソロ・音量、MP3 で保存", "キー変更（ドラム以外）", "アップロードなし・PC 推奨"],
+      guides: [["guide", "使い方ガイド"], ["minus-one", "自分のパートを消して練習する"], ["learn-by-ear", "ベースとドラムを聞き取る"], ["key-change", "曲のキーを変える"], ["how-it-works", "AI 音源分離の仕組み"], ["better-results", "うまく分離するコツ"], ["faq", "よくある質問"]],
     },
   },
   {
@@ -380,6 +395,22 @@ const APPS = [
       lead: "手持ちの曲を読み込むと、AI でボーカルを小さくでき、歌うと原曲のメロディに自分の音程が重なって表示されます。どこで高すぎた・低すぎたかが一目でわかります。歌いやすい音域を計測する機能もあり、キー変更にも対応。",
       points: ["ボーカル 0〜100%", "ズレたところがわかる答え合わせ", "音域からおすすめキー（任意）"],
       guides: [["guide", "使い方ガイド"], ["faq", "よくある質問"]],
+    },
+  },
+  {
+    slug: "vocalharmonymaker",
+    name: "Vocal Harmony Maker",
+    en: {
+      tag: "Harmony",
+      lead: "Add a harmony to the vocals of a song. AI separates the vocals in your browser, the app finds the chords, and adds a harmony a 3rd or a 5th above or below, sung in the singer's own voice, with a guide tone to practice along.",
+      points: ["Upper / lower, 3rd / 5th", "Edit the chords, change the key", "Audio and video files; MP3 save"],
+      guides: [["guide", "How to use"], ["harmony", "Practicing harmonies"], ["chords-and-key", "Chords, tempo, and key change"], ["how-it-works", "How the harmony is made"], ["faq", "FAQ"]],
+    },
+    ja: {
+      tag: "ハモリ",
+      lead: "曲のボーカルにハモリを付けます。AI でボーカルをブラウザの中で分離し、コードを推定して、3 度・5 度の上ハモ・下ハモを歌っている人の声のまま作成。練習用のガイド音つきです。",
+      points: ["上ハモ・下ハモ、3 度・5 度", "コードの修正・キー変更", "音声・動画ファイル、MP3 で保存"],
+      guides: [["guide", "使い方ガイド"], ["harmony", "ハモリの練習"], ["chords-and-key", "コード・テンポの推定とキーの変更"], ["how-it-works", "ボーカルからハモリを作る仕組み"], ["faq", "よくある質問"]],
     },
   },
 ];

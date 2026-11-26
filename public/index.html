@@ -133,7 +133,7 @@
         "@type": "WebApplication",
         "name": "Band Stem Mixer",
         "url": "https://ktkwmr.com/bandstemmixer/",
-        "description": "Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along. It also finds the chords and BPM, makes a harmony part from the vocals, and changes the key.",
+        "description": "Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along. It can also change the key. Audio and video files.",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -160,6 +160,19 @@
         "name": "Karaoke Trainer",
         "url": "https://ktkwmr.com/karaoketrainer/",
         "description": "Load a song you have and turn the vocals down with AI. When you sing, your pitch is drawn over the original melody, so you can see at a glance where you went sharp or flat. It can also measure your comfortable vocal range, and change the key.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Vocal Harmony Maker",
+        "url": "https://ktkwmr.com/vocalharmonymaker/",
+        "description": "Add a harmony to the vocals of a song. AI separates the vocals in your browser, the app finds the chords, and adds a harmony a 3rd or a 5th above or below, sung in the singer's own voice, with a guide tone to practice along.",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -437,7 +450,7 @@
     </section>
 
     <section aria-labelledby="apps">
-      <div class="section-head"><h2 id="apps">Apps</h2><span class="count">10</span></div>
+      <div class="section-head"><h2 id="apps">Apps</h2><span class="count">11</span></div>
       <ul class="apps">
         <li class="card">
           <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M11 7v14M17 7v14M8 12.5l12-2.5M8 18.5l12-2.5"/></g></svg><span>Chord Transposer</span><span class="tag">Transpose</span></div>
@@ -712,21 +725,20 @@
           </a>
           <div class="card-body">
             <h3><a href="/bandstemmixer/">Band Stem Mixer</a></h3>
-            <p class="desc">Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along. It also finds the chords and BPM, makes a harmony part from the vocals, and changes the key.</p>
+            <p class="desc">Split a band song into vocals, drums, bass, and other with AI, right in your browser, then mute, solo, and mix the parts to practice along. It can also change the key. Audio and video files.</p>
             <ul class="points">
               <li>Mute, solo, fader; save as MP3</li>
-              <li>Chords, harmony part, key change</li>
+              <li>Key change (all but drums)</li>
               <li>No upload; best on a PC</li>
             </ul>
             <a class="btn" href="/bandstemmixer/" aria-label="Open app: Band Stem Mixer">Open app<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <details class="guides">
-              <summary>Guides <span class="n">8</span></summary>
+              <summary>Guides <span class="n">7</span></summary>
               <ul>
                 <li><a href="/bandstemmixer/guide/">How to use</a></li>
                 <li><a href="/bandstemmixer/minus-one/">Practicing with your part removed</a></li>
                 <li><a href="/bandstemmixer/learn-by-ear/">Hearing the bass and drums clearly</a></li>
-                <li><a href="/bandstemmixer/harmony/">Practicing harmonies</a></li>
-                <li><a href="/bandstemmixer/chords-and-key/">Chords and key change</a></li>
+                <li><a href="/bandstemmixer/key-change/">Changing the key</a></li>
                 <li><a href="/bandstemmixer/how-it-works/">How AI separation works</a></li>
                 <li><a href="/bandstemmixer/better-results/">Tips for better separation</a></li>
                 <li><a href="/bandstemmixer/faq/">FAQ</a></li>
@@ -802,6 +814,41 @@
               <ul>
                 <li><a href="/karaoketrainer/guide/">How to use</a></li>
                 <li><a href="/karaoketrainer/faq/">FAQ</a></li>
+              </ul>
+            </details>
+          </div>
+        </li>
+        <li class="card">
+          <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g stroke="#fff" stroke-linecap="round" fill="none"><path stroke-width="2" d="M5 20.5h3M10.5 18.5h3M16 16h2.5M21 18h2"/><path stroke-width="3" d="M5 13h3M10.5 11h3M16 8.5h2.5M21 10.5h2"/></g></svg><span>Vocal Harmony Maker</span><span class="tag">Harmony</span></div>
+          <a class="preview" href="/vocalharmonymaker/" tabindex="-1" aria-hidden="true">
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700"><text x="4" y="11">Am</text><text x="66" y="11">F</text><text x="128" y="11">C</text><text x="190" y="11">G</text></g>
+                <path d="M0 17h252" stroke="#e5e5e5" stroke-width="1"/>
+                <g stroke="#000" stroke-width="6" stroke-linecap="butt"><path d="M4 34h40M48 28h12M66 42h44M128 32h36M168 48h16M190 38h56"/></g>
+                <g fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"><path d="M4 58c5-2 10 2 15 0s10 2 15 0 6 1 10 0M48 52h12M66 66c6-2 12 2 18 0s12 2 18 0 5 1 8 0M128 56c5-2 10 2 15 0s10 2 15 0 4 1 6 0M168 72h16M190 62c6-2 12 2 18 0s12 2 18 0 10 1 20 0"/></g>
+                <path d="M112 17v83" stroke="#000" stroke-width="1.6"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">3rd above</span><span class="chip">Guide</span><span class="chip">MP3</span></div>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3><a href="/vocalharmonymaker/">Vocal Harmony Maker</a></h3>
+            <p class="desc">Add a harmony to the vocals of a song. AI separates the vocals in your browser, the app finds the chords, and adds a harmony a 3rd or a 5th above or below, sung in the singer's own voice, with a guide tone to practice along.</p>
+            <ul class="points">
+              <li>Upper / lower, 3rd / 5th</li>
+              <li>Edit the chords, change the key</li>
+              <li>Audio and video files; MP3 save</li>
+            </ul>
+            <a class="btn" href="/vocalharmonymaker/" aria-label="Open app: Vocal Harmony Maker">Open app<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <details class="guides">
+              <summary>Guides <span class="n">5</span></summary>
+              <ul>
+                <li><a href="/vocalharmonymaker/guide/">How to use</a></li>
+                <li><a href="/vocalharmonymaker/harmony/">Practicing harmonies</a></li>
+                <li><a href="/vocalharmonymaker/chords-and-key/">Chords, tempo, and key change</a></li>
+                <li><a href="/vocalharmonymaker/how-it-works/">How the harmony is made</a></li>
+                <li><a href="/vocalharmonymaker/faq/">FAQ</a></li>
               </ul>
             </details>
           </div>
