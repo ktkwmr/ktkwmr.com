@@ -133,7 +133,7 @@
         "@type": "WebApplication",
         "name": "Band Stem Mixer",
         "url": "https://ktkwmr.com/bandstemmixer/ja/",
-        "description": "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。コードと BPM の推定、ボーカルからのハモリ作成、キーの変更も。",
+        "description": "バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。キーの変更も。音声ファイルと動画に対応。",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -160,6 +160,19 @@
         "name": "Karaoke Trainer",
         "url": "https://ktkwmr.com/karaoketrainer/ja/",
         "description": "手持ちの曲を読み込むと、AI でボーカルを小さくでき、歌うと原曲のメロディに自分の音程が重なって表示されます。どこで高すぎた・低すぎたかが一目でわかります。歌いやすい音域を計測する機能もあり、キー変更にも対応。",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Vocal Harmony Maker",
+        "url": "https://ktkwmr.com/vocalharmonymaker/ja/",
+        "description": "曲のボーカルにハモリを付けます。AI でボーカルをブラウザの中で分離し、コードを推定して、3 度・5 度の上ハモ・下ハモを歌っている人の声のまま作成。練習用のガイド音つきです。",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "Any",
         "offers": {
@@ -429,7 +442,7 @@
     </section>
 
     <section aria-labelledby="apps">
-      <div class="section-head"><h2 id="apps">アプリ</h2><span class="count">10</span></div>
+      <div class="section-head"><h2 id="apps">アプリ</h2><span class="count">11</span></div>
       <ul class="apps">
         <li class="card">
           <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M11 7v14M17 7v14M8 12.5l12-2.5M8 18.5l12-2.5"/></g></svg><span>Chord Transposer</span><span class="tag">移調</span></div>
@@ -704,21 +717,20 @@
           </a>
           <div class="card-body">
             <h3><a href="/bandstemmixer/ja/">Band Stem Mixer</a></h3>
-            <p class="desc">バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。コードと BPM の推定、ボーカルからのハモリ作成、キーの変更も。</p>
+            <p class="desc">バンドの曲を AI でボーカル・ドラム・ベース・その他の 4 パートに、ブラウザの中で分離。パートごとにミュート・ソロ・音量を変えて練習できます。キーの変更も。音声ファイルと動画に対応。</p>
             <ul class="points">
               <li>ミュート・ソロ・音量、MP3 で保存</li>
-              <li>コード推定・ハモリ作成・キー変更</li>
+              <li>キー変更（ドラム以外）</li>
               <li>アップロードなし・PC 推奨</li>
             </ul>
             <a class="btn" href="/bandstemmixer/ja/" aria-label="アプリを開く: Band Stem Mixer">アプリを開く<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <details class="guides">
-              <summary>ガイド <span class="n">8</span></summary>
+              <summary>ガイド <span class="n">7</span></summary>
               <ul>
                 <li><a href="/bandstemmixer/ja/guide/">使い方ガイド</a></li>
                 <li><a href="/bandstemmixer/ja/minus-one/">自分のパートを消して練習する</a></li>
                 <li><a href="/bandstemmixer/ja/learn-by-ear/">ベースとドラムを聞き取る</a></li>
-                <li><a href="/bandstemmixer/ja/harmony/">ハモリの練習</a></li>
-                <li><a href="/bandstemmixer/ja/chords-and-key/">コード表示とキー変更</a></li>
+                <li><a href="/bandstemmixer/ja/key-change/">曲のキーを変える</a></li>
                 <li><a href="/bandstemmixer/ja/how-it-works/">AI 音源分離の仕組み</a></li>
                 <li><a href="/bandstemmixer/ja/better-results/">うまく分離するコツ</a></li>
                 <li><a href="/bandstemmixer/ja/faq/">よくある質問</a></li>
@@ -794,6 +806,41 @@
               <ul>
                 <li><a href="/karaoketrainer/ja/guide/">使い方ガイド</a></li>
                 <li><a href="/karaoketrainer/ja/faq/">よくある質問</a></li>
+              </ul>
+            </details>
+          </div>
+        </li>
+        <li class="card">
+          <div class="panel-head"><svg class="app-icon" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g stroke="#fff" stroke-linecap="round" fill="none"><path stroke-width="2" d="M5 20.5h3M10.5 18.5h3M16 16h2.5M21 18h2"/><path stroke-width="3" d="M5 13h3M10.5 11h3M16 8.5h2.5M21 10.5h2"/></g></svg><span>Vocal Harmony Maker</span><span class="tag">ハモリ</span></div>
+          <a class="preview" href="/vocalharmonymaker/ja/" tabindex="-1" aria-hidden="true">
+            <div class="pv-stems" aria-hidden="true">
+              <svg class="pv-mixer" viewBox="0 0 252 100">
+                <g font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700"><text x="4" y="11">Am</text><text x="66" y="11">F</text><text x="128" y="11">C</text><text x="190" y="11">G</text></g>
+                <path d="M0 17h252" stroke="#e5e5e5" stroke-width="1"/>
+                <g stroke="#000" stroke-width="6" stroke-linecap="butt"><path d="M4 34h40M48 28h12M66 42h44M128 32h36M168 48h16M190 38h56"/></g>
+                <g fill="none" stroke="#a3a3a3" stroke-width="2" stroke-linecap="round"><path d="M4 58c5-2 10 2 15 0s10 2 15 0 6 1 10 0M48 52h12M66 66c6-2 12 2 18 0s12 2 18 0 5 1 8 0M128 56c5-2 10 2 15 0s10 2 15 0 4 1 6 0M168 72h16M190 62c6-2 12 2 18 0s12 2 18 0 10 1 20 0"/></g>
+                <path d="M112 17v83" stroke="#000" stroke-width="1.6"/>
+              </svg>
+              <div class="pv-controls"><span class="chip on">3rd above</span><span class="chip">Guide</span><span class="chip">MP3</span></div>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3><a href="/vocalharmonymaker/ja/">Vocal Harmony Maker</a></h3>
+            <p class="desc">曲のボーカルにハモリを付けます。AI でボーカルをブラウザの中で分離し、コードを推定して、3 度・5 度の上ハモ・下ハモを歌っている人の声のまま作成。練習用のガイド音つきです。</p>
+            <ul class="points">
+              <li>上ハモ・下ハモ、3 度・5 度</li>
+              <li>コードの修正・キー変更</li>
+              <li>音声・動画ファイル、MP3 で保存</li>
+            </ul>
+            <a class="btn" href="/vocalharmonymaker/ja/" aria-label="アプリを開く: Vocal Harmony Maker">アプリを開く<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <details class="guides">
+              <summary>ガイド <span class="n">5</span></summary>
+              <ul>
+                <li><a href="/vocalharmonymaker/ja/guide/">使い方ガイド</a></li>
+                <li><a href="/vocalharmonymaker/ja/harmony/">ハモリの練習</a></li>
+                <li><a href="/vocalharmonymaker/ja/chords-and-key/">コード・テンポの推定とキーの変更</a></li>
+                <li><a href="/vocalharmonymaker/ja/how-it-works/">ボーカルからハモリを作る仕組み</a></li>
+                <li><a href="/vocalharmonymaker/ja/faq/">よくある質問</a></li>
               </ul>
             </details>
           </div>
