@@ -13,7 +13,9 @@ https://ktkwmr.com/ のトップページ（アプリ一覧）と、ドメイン
 - 運営者: ktkwmr / 問い合わせ: 各アプリの GitHub Issues
 
 ## ルール
-- 手で編集するのは `scripts/`、`public/robots.txt`・`404.html`・`_headers`・`_redirects`・`icon.svg`。生成ファイル（`public/index.html`・`public/ja/index.html`・`public/sitemap.xml`）は `node scripts/build.mjs` で作り直す（`--check` で確認）。`og-image.png`・`icons/` は `node scripts/render-images.mjs`。
+- 手で編集するのは `scripts/`、`public/robots.txt`・`404.html`・`_headers`・`_redirects`・`icon.svg`・`usage-events.js`。生成ファイル（`public/index.html`・`public/ja/index.html`・`public/privacy/`・`public/ja/privacy/`・`public/sitemap.xml`）は `node scripts/build.mjs` で作り直す（`--check` で確認）。`og-image.png`・`icons/` は `node scripts/render-images.mjs`。
+- `/privacy/` はドメイン全体のプライバシーポリシー（`scripts/pages/privacy.mjs`）。Zaraz の同意バナーの文言からリンクしている。全アプリに共通する送信先・Cookie・GA4 の扱いを変えたら、ここと各アプリのポリシーを一緒に直す。
+- 利用状況の計測（Cloudflare Zaraz → GA4、同意した人だけ。ベースライン §17）: トップページ・ポリシー・404 で `/cdn-cgi/zaraz/i.js` と `usage-events.js`（ベースラインの雛形のコピー、`PREFIX` は `home`）を読む。フッターに「Cookie の設定」。
 - アプリ名はデータ（`home.mjs` の `APPS`・`ICON`）にだけ書く。ヘッダー・説明文・OGP 画像には書かない（アプリが増えても直さずに済むように）。
 - アプリを足したら `APPS`・`ICON`・`PREVIEW` と `robots.txt` の `Sitemap:` 行を同じ PR で足す。アプリのガイド記事・名前・説明・アイコン・画面が変わったときも直す。
 - `PREVIEW`（カードの上の絵）は必須。アプリの機能が一目でわかる、主な画面を簡単にした絵にする（アイコンだけにしない。アイコンはカードの見出しにもう出ている）。無いと `build.mjs` が止まる。足したら PC 幅とスマホ幅のスクリーンショットで見た目を確かめる。

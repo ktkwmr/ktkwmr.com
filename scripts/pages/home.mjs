@@ -14,7 +14,12 @@
 import { ORIGIN, escapeHtml } from "./util.mjs";
 
 export const HOME_PATH = { en: "/", ja: "/ja/" };
-const CF_TOKEN = "5c53079cb9a64d819d1ca53e8533ca63";
+export const PRIVACY_PATH = { en: "/privacy/", ja: "/ja/privacy/" };
+// Usage analytics: Cloudflare Zaraz → Google Analytics 4, only after consent (see public/usage-events.js)
+export const USAGE_TAGS = `  <!-- Usage analytics: Cloudflare Zaraz → Google Analytics 4, only after consent (see /usage-events.js) -->
+  <script src="/cdn-cgi/zaraz/i.js" referrerpolicy="origin"></script>
+  <script src="/usage-events.js"></script>`;
+export const CF_TOKEN = "5c53079cb9a64d819d1ca53e8533ca63";
 
 // App icons: the same as each app's icons/icon.svg (white strokes on a black rounded square)
 const ICON = {
@@ -45,7 +50,7 @@ const icon = (slug, cls = "app-icon") =>
   `<svg class="${cls}" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/>${ICON[slug]}</svg>`;
 
 // Site mark: four tiles = a small collection of apps
-const MARK =
+export const MARK =
   '<svg class="mark" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#000"/><g fill="#fff"><rect x="7" y="7" width="6" height="6" rx="1.5"/><rect x="15" y="7" width="6" height="6" rx="1.5"/><rect x="7" y="15" width="6" height="6" rx="1.5"/></g><rect x="15.75" y="15.75" width="4.5" height="4.5" rx="1.2" fill="none" stroke="#fff" stroke-width="1.5"/></svg>';
 
 // Small, static previews of each app's main screen (decorative)
@@ -236,7 +241,7 @@ const PREVIEW = {
             </div>`,
 };
 
-const APPS = [
+export const APPS = [
   {
     slug: "chordtransposer",
     name: "Chord Transposer",
@@ -417,7 +422,7 @@ const APPS = [
 
 const appPath = (lang, slug) => `/${slug}/${lang === "ja" ? "ja/" : ""}`;
 
-const UI = {
+export const UI = {
   en: {
     locale: "en_US",
     title: "ktkwmr – Web apps of musicians, by musicians, for musicians",
@@ -438,6 +443,8 @@ const UI = {
       ["English and Japanese", "Every app and guide is written in both languages, chosen from your browser."],
     ],
     footer: "© 2026 ktkwmr",
+    privacy: "Privacy policy",
+    cookies: "Cookie settings",
     source: "GitHub",
     feedback: "Feedback",
     nav: "Site",
@@ -462,13 +469,15 @@ const UI = {
       ["日本語と英語", "アプリもガイドも両方の言語で。ブラウザの言語で自動で切り替わります。"],
     ],
     footer: "© 2026 ktkwmr",
+    privacy: "プライバシーポリシー",
+    cookies: "Cookie の設定",
     source: "GitHub",
     feedback: "ご意見・ご質問",
     nav: "サイト",
   },
 };
 
-const CSS = `
+export const CSS = `
     :root {
       color-scheme: light;
       --ink: #000; --paper: #fff; --muted: #525252; --subtle: #737373; --line: #e5e5e5; --line-strong: #d4d4d4;
@@ -775,6 +784,7 @@ ${JSON.stringify(jsonLd, null, 2).replace(/</g, "\\u003c").replace(/^/gm, "  ")}
   }
   <style>${CSS}
   </style>
+${USAGE_TAGS}
 </head>
 <body>
   <header class="site-head">
@@ -815,6 +825,8 @@ ${ui.why.map(([h, p], i) => `        <li><span class="num">${String(i + 1).padSt
       <a class="brand" href="${HOME_PATH[lang]}">${MARK}<span>ktkwmr</span></a>
       <span>${ui.footer}</span>
       <nav aria-label="${ui.nav}">
+        <a href="${PRIVACY_PATH[lang]}">${ui.privacy}</a>
+        <a href="#" class="cookie-settings">${ui.cookies}</a>
         <a href="https://github.com/ktkwmr" rel="noopener">${ui.source}</a>
         <a href="https://github.com/ktkwmr/ktkwmr.com/issues" rel="noopener">${ui.feedback}</a>
       </nav>
